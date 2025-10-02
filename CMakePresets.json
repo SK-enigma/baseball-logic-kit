@@ -1,0 +1,43 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "msbuild-x64",
+      "displayName": "MSBuild (VS 2022) x64",
+      "generator": "Visual Studio 17 2022",
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "ninja-multi",
+      "displayName": "Ninja Multi-Config",
+      "generator": "Ninja Multi-Config",
+      "binaryDir": "${sourceDir}/out/build/${presetName}"
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "msbuild-x64-debug",
+      "configurePreset": "msbuild-x64",
+      "configuration": "Debug"
+    },
+    {
+      "name": "msbuild-x64-release",
+      "configurePreset": "msbuild-x64",
+      "configuration": "Release"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "msbuild-x64-test",
+      "configurePreset": "msbuild-x64",
+      "configuration": "Debug"
+    }
+  ]
+}
