@@ -1,27 +1,25 @@
-# Baseball Logic Kit (C++)
+Baseball Logic Kit (C++)
 
-Deterministic, testable **baseball rules engine** for simulations and prototypes—outs, innings, base states, and scoring—written in modern C++ with CMake, doctest, and a tiny CLI demo.
+Deterministic, testable baseball rules engine for simulations and prototypes—outs, innings, base states, and scoring—written in modern C++ with CMake, doctest, and a tiny CLI demo.
 
 
 
----
 
-## Why this exists
-- **Deterministic**: seedable RNG so sims are reproducible  
-- **Small & focused**: core logic only; no UI framework  
-- **Testable**: unit tests with doctest  
-- **Portable build**: clean CMake presets and options  
+Why this exists
 
----
+Deterministic: seedable RNG so sims are reproducible
 
-## Quick Start
+Small & focused: core logic only; no UI framework
 
-### Build (Release) & run tests
-```bash
+Testable: unit tests with doctest
+
+Portable build: clean CMake presets and options
+
+Quick Start
+Build (Release) & run tests
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build --config Release --parallel
 ctest --test-dir build --output-on-failure --build-config Release
-
 
 Run the demo
 ./build/bin/baseball_demo --seed 123
@@ -34,7 +32,7 @@ T1: PA#2 -> Groundout (1 out)
 ...
 Score: Away 3 - Home 1 (End 5th)
 
-
+<!-- Add this GIF later (optional but recommended) --> <!-- ![Console demo](docs/demo.gif) -->
 Tiny API Example
 #include "Rules.h"
 #include "GameState.h"
@@ -56,6 +54,15 @@ GameState: inning, half, outs, base occupancy, score
 Rules: pure functions mapping (state, rng) -> (outcome, new state)
 
 RNG: seeded PRNG passed in (no hidden globals)
+
+
+Project Structure
+include/bl/         # public headers (GameState.h, Rules.h, RNG.h, Outcome.h)
+src/                # library implementation
+apps/               # demo main.cpp -> baseball_demo
+tests/              # doctest unit tests
+docs/               # demo.gif, state_machine.png (optional)
+.github/workflows/  # ci.yml (GitHub Actions)
 
 CMake Options
 BUILD_DEMO   (ON/OFF) - build CLI demo (default: ON)
@@ -89,3 +96,11 @@ Force advance from 1B on single
 Three outs ends the half-inning
 
 Same seed → same sequence
+
+Roadmap
+
+v0.1.0: Base-running + outs, deterministic RNG, event log
+
+v0.2.0: Walk/strikeout distributions, double play, sac fly rules
+
+v0.3.0: Player ratings layer (contact/power/speed/fielding)
