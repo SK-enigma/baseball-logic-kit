@@ -2,11 +2,7 @@
 
 Deterministic, testable **baseball rules engine** for simulations and prototypes—outs, innings, base states, and scoring—written in modern C++ with CMake, doctest, and a tiny CLI demo.
 
-[![CI](https://github.com/SK-enigma/baseball-logic-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/SK-enigma/baseball-logic-kit/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-<!-- Optional once you add coverage:
-[![Coverage](https://img.shields.io/badge/coverage-pending-lightgrey.svg)](#)
--->
+
 
 ---
 
@@ -38,7 +34,7 @@ T1: PA#2 -> Groundout (1 out)
 ...
 Score: Away 3 - Home 1 (End 5th)
 
-<!-- Add this GIF later (optional but recommended) --> <!-- ![Console demo](docs/demo.gif) -->
+
 Tiny API Example
 #include "Rules.h"
 #include "GameState.h"
