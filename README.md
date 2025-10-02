@@ -24,7 +24,7 @@ ctest --test-dir build --output-on-failure --build-config Release
 Run the demo
 ./build/bin/baseball_demo --seed 123
 
-
+```
 Example output (deterministic with the same seed):
 
 T1: PA#1 -> Single (runner to 1B)
@@ -32,7 +32,19 @@ T1: PA#2 -> Groundout (1 out)
 ...
 Score: Away 3 - Home 1 (End 5th)
 
-<!-- Add this GIF later (optional but recommended) --> <!-- ![Console demo](docs/demo.gif) -->
+### 📦 Sample Output
+
+
+T1: PA#1 -> Single (runner to 1B)
+T1: PA#2 -> Groundout (1 out)
+T1: PA#3 -> Double (runner scores)
+...
+
+Score: Away 3 - Home 1 (End 5th)
+
+
+
+
 Tiny API Example
 #include "Rules.h"
 #include "GameState.h"
